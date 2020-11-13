@@ -6,7 +6,7 @@ apt install wipe nwipe dc3dd dcfldd clonezilla foremost testdisk gddrescue growi
 apt install samba samba-common libcups2 sshfs openssh-server ntp ntpdate python  virtualbox  virtualbox-guest-additions-iso vim mc feh ffmpeg  -y
 apt install imagemagick rsyslog  btrfs-progs xfsprogs xfsdump gdebi wget git curl redshift redshift-gtk audacious audacity vlc -y
 apt install simplescreenrecorder bleachbit speedtest-cli p7zip p7zip-full p7zip-rar lzma lzma-dev rar unrar-free ark ncompress rzip file-roller -y
-apt install zip unzip xarchiver poppler-utils ttf-mscorefonts-installer stress-ng zsh  atop xsensors jpegoptim snapd smbclient -y
-apt install  squid3   -y
-snap install pdftk fast 
+apt install zip unzip xarchiver poppler-utils ttf-mscorefonts-installer stress-ng zsh  atop xsensors jpegoptim steghide  smbclient -y
+apt install cpu-checker bridge-utils virtinst virt-viewer  qemu qemu-kvm virt-manager libvirt-daemon -y 
+
 

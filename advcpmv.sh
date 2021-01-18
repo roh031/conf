@@ -6,7 +6,6 @@ sleep 2
 apt update && apt install build-essential -y 
 wget -c http://gnu.c3sl.ufpr.br/ftp/coreutils/coreutils-8.32.tar.xz
 tar xfv coreutils-8.32.tar.xz 
-cd coreutils-8.32.tar.xz 
 wget -c https://raw.githubusercontent.com/jarun/advcpmv/master/advcpmv-0.8-8.32.patch 
 #
 #  Mova o "advcpmv-0.8-8.32.patch"  para a pasta "coreutils-8.32/" 

@@ -12,9 +12,9 @@ apt install  nmap progress build-essential  gvfs-backends nfs-kernel-server nfs-
 echo "Finalizando" 
 sleep 2
 clear
-kvm-ok 
-lsmod | grep -i kvm 
-systemctl enable libvirtd --now
-adduser $USER kvm
-adduser $USER libvirt
+#kvm-ok 
+#lsmod | grep -i kvm 
+#systemctl enable libvirtd --now
+#adduser $USER kvm
+#adduser $USER libvirt
  

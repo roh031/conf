@@ -1,0 +1,5 @@
+qemu-system-x86_64 --enable-kvm -m 4G -smp 2 --name Elementary_Live -boot d -cdrom elementaryos-5.1-stable.20200814.iso
+
+qemu-img create -f qcov2 hdd.qcov2 30G
+
+qemu-system-x86_64 --enable-kvm -m 4G -smp 2 --name Elementary_Live -boot d -hda hdd.qcov2 -cdrom elementaryos-5.1-stable.20200814.iso

@@ -8,6 +8,7 @@ apt upgrade -y && apt full-upgrade -y && apt dist-upgrade -y
 apt install -f -y 
 apt autoclean
 apt autoremove -y && apt clean 
+sync
 clear
 #
 

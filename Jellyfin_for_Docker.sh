@@ -8,7 +8,7 @@ docker run -d \
   -p 8920:8920 `#optional` \
   -p 7359:7359/udp `#optional` \
   -p 1900:1900/udp `#optional` \
-  -v /docker/appdata/jellyfin:/config \
+  -v /docker/jellyfin:/config \
   -v /home/ronaldo/Midia:/data/movies \
   -v /opt/vc/lib:/opt/vc/lib `#optional` \
   --device /dev/dri:/dev/dri `#optional` \

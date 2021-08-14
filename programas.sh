@@ -5,9 +5,9 @@ sleep 2
 apt install wipe nwipe  dcfldd clonezilla foremost testdisk gddrescue growisofs screenfetch scrot unoconv tilix htop gparted secure-delete -y
 apt install samba samba-common libcups2 sshfs openssh-server ntp ntpdate python vim  feh  -y
 apt install  rsyslog  btrfs-progs xfsprogs xfsdump gdebi wget git curl redshift redshift-gtk audacious audacity vlc -y
-apt install simplescreenrecorder  file-roller gimp gnome-disk-utility  -y
+apt install simplescreenrecorder  file-roller gimp gnome-disk-utility pv cgpt tar  -y
 apt install zip unzip rar unrar-free  poppler-utils ttf-mscorefonts-installer stress-ng zsh  atop xsensors jpegoptim steghide ncdu  smbclient -y
-apt install nmap progress build-essential  gvfs-backends nfs-kernel-server nfs-common hddtemp smartmontools zram-config   -y 
+apt install nmap progress build-essential  gvfs-backends nfs-kernel-server nfs-common hddtemp smartmontools zram-config  synapse  -y 
 #
 #
 #apt install cpu-checker bridge-utils virtinst virt-viewer  qemu qemu-kvm virt-manager libvirt-daemon ncdu -y

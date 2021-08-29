@@ -12,6 +12,8 @@ echo "set confirm" >> ~/.vimrc
 echo "color murphy" >> ~/.vimrc
 echo "stty -ixon" >> ~/.zshrc
 source ~/.zshrc
+echo 'stty -ixon' >> ~/.bashrc
+source ~/.bashrc 
 #
 #
 echo "Concluído"

@@ -2,7 +2,6 @@
 #
 echo "Criando o arquivo de configuração do VIM" 
 sleep 2 
-apt install vim -y 
 echo "set number" > ~/.vimrc
 echo "map q :quit<CR>" >> ~/.vimrc
 echo "map <C-s> :wq<CR>" >> ~/.vimrc

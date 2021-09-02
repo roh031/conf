@@ -1,7 +1,7 @@
 #!/bin/bash
 echo "Instalando os pacotes"
 sleep 2
-apt install wipe nwipe  dcfldd clonezilla foremost testdisk gddrescue growisofs  scrot unoconv  -y 
+apt install wipe nwipe  dcfldd clonezilla foremost testdisk gddrescue growisofs  scrot unoconv hashdeep  -y 
 apt install samba samba-common libcups2 sshfs openssh-server ntp ntpdate python -y 
 apt install rsyslog  btrfs-progs xfsprogs xfsdump gdebi wget git curl screenfetch -y 
 apt install speedtest-cli  rar unrar-free htop nfs-kernel-server nfs-common hddtemp progress build-essential  -y 

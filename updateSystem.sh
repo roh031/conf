@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 #
 #
-echo "Atualizando os repositórios, pacotes e definições de vírus"
-sleep 2
-apt update --fix-missing 
-apt upgrade -y && apt full-upgrade -y && apt dist-upgrade -y 
-apt install -f -y 
-freshclam
-apt autoclean && apt clean 
-apt autoremove -y 
+LOG=/var/log/updateSYSTEM.log
+apt update >> $LOG
+apt upgrade -y >> $LOG
+apt install -f -y >> $LOG
+apt auotemove -y 
+apt clean && apt autoclean
+freshclam >> $LOG
+flatpak update >> $LOG
+echo "*** $(date -R) ***" >> $LOG
 sync
-date
 #
-

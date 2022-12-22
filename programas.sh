@@ -13,16 +13,15 @@ rm -f /var/log/clamav/freshclam.log
 freshclam
 #
 #
-#apt install cpu-checker bridge-utils virtinst virt-viewer  qemu qemu-kvm virt-manager libvirt-daemon ncdu -y
-#apt install virtualbox  virtualbox-guest-additions-iso -y 
-#apt install  p7zip p7zip-full p7zip-rar lzma lzma-dev  ark ncompress rzip -y
+apt install cpu-checker bridge-utils virtinst virt-viewer  qemu qemu-kvm virt-manager libvirt-daemon ncdu -y
+apt install virtualbox  virtualbox-guest-additions-iso -y 
+apt install  p7zip p7zip-full p7zip-rar lzma lzma-dev  ark ncompress rzip -y
 echo "Finalizando" 
 sleep 2
 clear
-#kvm-ok 
-#lsmod | grep -i kvm 
-#systemctl enable libvirtd --now
-#usermod -aG  kvm  $USER
-#usermod -aG libvirt  $USER 
-#reboot
- 
+kvm-ok 
+lsmod | grep -i kvm 
+systemctl enable libvirtd --now
+usermod -aG  kvm  $USER
+usermod -aG libvirt  $USER 
+reboot 

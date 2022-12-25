@@ -3,11 +3,12 @@
 echo "Instalando os programas"
 sleep 2
 apt install wipe nwipe  dcfldd clonezilla foremost testdisk gddrescue growisofs screenfetch scrot unoconv tilix htop gparted secure-delete -y
-apt install samba samba-common libcups2 sshfs openssh-server ntp ntpdate vim  feh neovim  -y
+apt install samba samba-common libcups2 sshfs openssh-server chrony vim  feh neovim  -y
 apt install rsyslog btrfs-progs xfsprogs xfsdump gdebi wget git curl redshift redshift-gtk audacious audacity vlc -y
-apt install simplescreenrecorder  file-roller gimp gnome-disk-utility pv cgpt tar anacron brasero k3b clamav clamtk -y
-apt install zip unzip rar unrar-free poppler-utils ttf-mscorefonts-installer stress-ng zsh  atop xsensors jpegoptim steghide ncdu  smbclient -y
-apt install nmap progress build-essential gufw smartmontools zram-config  synapse synaptic -y 
+apt install simplescreenrecorder file-roller gimp gnome-disk-utility pv cgpt tar anacron brasero k3b clamav clamtk -y
+apt install zip unzip rar unrar-free poppler-utils ttf-mscorefonts-installer stress-ng zsh atop xsensors jpegoptim steghide ncdu smbclient -y
+apt install nmap progress build-essential gufw smartmontools  -y 
+#apt install zram-config  synapse synaptic -y
 systemctl disable clamav-freshclam.service
 rm -f /var/log/clamav/freshclam.log
 freshclam
@@ -15,7 +16,7 @@ freshclam
 #
 apt install cpu-checker bridge-utils virtinst virt-viewer  qemu qemu-kvm virt-manager libvirt-daemon ncdu -y
 apt install virtualbox  virtualbox-guest-additions-iso -y 
-apt install  p7zip p7zip-full p7zip-rar lzma lzma-dev  ark ncompress rzip -y
+#apt install  p7zip p7zip-full p7zip-rar lzma lzma-dev  ark ncompress rzip -y
 echo "Finalizando" 
 sleep 2
 clear
@@ -24,4 +25,7 @@ lsmod | grep -i kvm
 systemctl enable libvirtd --now
 usermod -aG  kvm  $USER
 usermod -aG libvirt  $USER 
+chown root:sambashare /var/lib/samba/usershares
+chmod 1770 /var/lib/samba/usershares
+adduser $USER sambashare
 reboot 

@@ -7,7 +7,7 @@ apt install samba samba-common libcups2 sshfs openssh-server chrony vim -y
 apt install rsyslog btrfs-progs xfsprogs xfsdump gdebi wget git curl redshift redshift-gtk audacious audacity vlc -y
 apt install simplescreenrecorder file-roller gimp gnome-disk-utility pv cgpt tar anacron brasero k3b clamav clamtk -y
 apt install zip unzip rar unrar-free poppler-utils ttf-mscorefonts-installer stress-ng zsh  xsensors jpegoptim steghide ncdu smbclient -y
-apt install nmap progress build-essential gufw smartmontools tldr exa  -y 
+apt install nmap progress build-essential gufw smartmontools tldr exa fd-find bashtop  -y 
 ufw enable 
 #apt install zram-config  synapse synaptic p7zip p7zip-full p7zip-rar lzma lzma-dev  ark ncompress atop feh neovim rzip -y
 systemctl disable clamav-freshclam.service

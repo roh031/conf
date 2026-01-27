@@ -1,13 +1,12 @@
-# This file describes the network interfaces available on your system
-# For more information, see netplan(5).
 network:
   version: 2
-  renderer: networkd
   ethernets:
-    enp0s3:
-      dhcp4: no
-      dhcp6: no
-      addresses: [192.168.1.6/24]
-      gateway4: 192.168.1.1
+    ens18:
+      dhcp4: false
+      addresses:
+        - 172.16.1.240/24
+      routes:
+        - to: default
+          via: 172.16.1.1
       nameservers:
-        addresses: [94.140.14.14,94.140.15.15]
+        addresses: [8.8.8.8, 8.8.4.4]

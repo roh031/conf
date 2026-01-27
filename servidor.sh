@@ -4,8 +4,6 @@ apt install samba samba-common libcups2 smbclient htop gddrescue foremost wipe n
 chown root:sambashare /var/lib/samba/usershares
 chmod 1770 /var/lib/samba/usershares
 adduser $USER sambashare
-chown root:sambashare /var/lib/samba/usershares
-chmod 1770 /var/lib/samba/usershares
 usermod -aG sambashare $USER
 smbpasswd -a $USER
 systemctl restart smbd.service nmbd.service

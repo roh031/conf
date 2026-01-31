@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 #
-apt install samba samba-common libcups2 smbclient htop gddrescue foremost wipe nwipe clonezilla zsh git curl wget testdisk growisofs mdadm rsyslog screenfetch dcfldd speedtest-cli zip unzip -y 
-chown root:sambashare /var/lib/samba/usershares
-chmod 1770 /var/lib/samba/usershares
-adduser $USER sambashare
-usermod -aG sambashare $USER
-smbpasswd -a $USER
-systemctl restart smbd.service nmbd.service
+sudo apt install samba samba-common libcups2 smbclient htop gddrescue foremost wipe nwipe clonezilla zsh git curl wget testdisk growisofs mdadm rsyslog neofetch dcfldd speedtest-cli zip unzip -y 
+sudo chown root:sambashare /var/lib/samba/usershares
+sudo chmod 1770 /var/lib/samba/usershares
+sudo adduser $USER sambashare
+sudo usermod -aG sambashare $USER
+sudo smbpasswd -a $USER
+echo "*.*  /var/log/tudao.log" >> /etc/rsyslog.conf
+systemctl restart smbd.service nmbd.service rsyslog.service

@@ -7,14 +7,13 @@ clean
 sleep 2
 #
 echo "Aplicando as regras"
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
-sudo ufw allow 53/tcp
+sudo ufw allow 80
+sudo ufw allow 443
 sudo ufw allow 445/tcp
 sudo ufw allow 2222/tcp
-sudo ufw allow 137:139/tcp
-sudo ufw allow 137:139/udp
-sudo ufw allow 53/udp
+sudo ufw allow 137:138/udp
+sudo ufw allow 139/tcp
+sudo ufw allow 53
 sleep 2
 #
 echo "Finalizado"

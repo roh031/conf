@@ -15,6 +15,7 @@ sudo ufw allow 137:138/udp
 sudo ufw allow 139/tcp
 sudo ufw allow 53
 sleep 2
+#sudo ufw default deny incoming
 #
 echo "Finalizado"
 sleep 2

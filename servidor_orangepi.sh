@@ -6,9 +6,11 @@ sudo usermod -aG docker $USER
 sudo systemctl enable --now docker docker.socket containerd
 sudo chown root:sambashare /var/lib/samba/usershares
 sudo chmod 1770 /var/lib/samba/usershares
-sudo adduser orangepi sambashare
+sudo adduser $USER sambashare
 sudo chown root:sambashare /var/lib/samba/usershares
 sudo chmod 1770 /var/lib/samba/usershares
-sudo usermod -aG sambashare orangepi
-sudo smbpasswd -a orangepi
+sudo usermod -aG sambashare $USER
+sudo smbpasswd -a $USER
+echo "*.*  /var/log/tudao.log" >> /etc/rsyslog.conf
 sudo systemctl restart smbd.service nmbd.service
+sudo reboot now 

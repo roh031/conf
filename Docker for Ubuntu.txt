@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
 echo "Instalando o Docker"
 4º Instalar o Docker
-sudo apt update && sudo apt-get install docker.io docker-compose
+sudo apt update && sudo apt-get install docker.io docker-compose containerd -y
 sudo systemctl enable --now docker docker.socket containerd
 5º Incluir o usuário comum no grupo docker
 sudo usermod -aG docker $USER
 sudo reboot now
+
 
 
 

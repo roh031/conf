@@ -1,9 +1,93 @@
 services:
-  metube:
-    image: ghcr.io/alexta69/metube
-    container_name: metube
+  filebrowser:
+    container_name: filebrowser
     restart: unless-stopped
+    image: filebrowser/filebrowser:latest
+    user: 1000:1000
+    # Adicionamos as variáveis de ambiente para garantir que o container saiba quem é o dono
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Recife
     ports:
-      - "8081:8081"
+      - "8082:80"
     volumes:
-      - /path/to/downloads:/downloads
+      - /home/orangepi:/srv
+      # Corrigido: O FileBrowser por padrão busca o banco em /database.db ou /filebrowser.db dependendo da versão. 
+      # Vamos usar o caminho que o log mostrou que ele estava procurando:
+      - /home/ronaldo/Docker/filebrowser/filebrowser.db:/filebrowser.db
+      - /home/ronaldo/Docker/filebrowser/mime.types:/config/mime.types
+
+  aria2-pro:
+    container_name: aria2-pro
+    image: p3terx/aria2-pro
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - RPC_SECRET=shred-uzfv
+      - RPC_PORT=6800
+      - LISTEN_PORT=6888
+      - TZ=America/Recife
+    volumes:
+      - /home/ronaldo/Docker/aria2/config:/config
+      - /home/ronaldo/Downloads:/downloads
+    ports:
+      - 6800:6800
+    restart: unless-stopped
+
+  ariang:
+    container_name: ariang
+    image: p3terx/ariang
+    command: --port 6880
+    ports:
+      - 6880:6880
+    restart: unless-stopped
+  
+
+  metube:
+    container_name: metube
+    image: alexta69/metube:latest
+    ports:
+      - 8084:8081
+    volumes:
+      - /home/ronaldo/Downloads:/downloads
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 1024M
+
+  portainer:
+    image: portainer/portainer-ce:latest
+    container_name: portainer
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./portainer_data:/data
+    ports:
+      - 9000:9000
+      
+  bentopdf:
+    image: ghcr.io/alam00000/bentopdf:latest # Recommended
+    # image: bentopdfteam/bentopdf:latest     # Alternative: Docker Hub
+    container_name: bentopdf
+    ports:
+      - '3000:8080'
+    restart: unless-stopped
+    
+  nextcloud:
+        image: nextcloud
+        container_name: nextcloud
+        restart: unless-stopped
+        environment:
+            - TZ=America/Recife
+        ports:
+            - '8090:80'
+        volumes:
+            - '/home/orangepi/Docker/Nextcloud/data:/var/www/html/data'
+            - '/home/orangepi/Docker/Nextcloud/config:/var/www/html/config'
+            - '/home/orangepi/Docker/Nextcloud/apps:/var/www/html/custom_apps'
+            - '/home/orangepi/Docker/Nextcloud/nextcloud:/var/www/html'

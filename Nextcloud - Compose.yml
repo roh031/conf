@@ -1,0 +1,15 @@
+version: '3.9'
+services:
+    nextcloud:
+        image: nextcloud
+        container_name: nextcloud
+        restart: unless-stopped
+        environment:
+            - TZ=America/Recife
+        ports:
+            - '8090:80'
+        volumes:
+            - '/home/ronaldo/Docker/Nextcloud/data:/var/www/html/data'
+            - '/home/ronaldo/Docker/Nextcloud/config:/var/www/html/config'
+            - '/home/ronaldo/Docker/Nextcloud/apps:/var/www/html/custom_apps'
+            - '/home/ronaldo/Docker/Nextcloud/nextcloud:/var/www/html'

@@ -1,0 +1,39 @@
+services:
+  termix:
+    image: ghcr.io/lukegus/termix:latest
+    container_name: termix
+    restart: unless-stopped
+    ports:
+      - "7681:8080"
+    volumes:
+      - /home/orangepi/SSD/Docker/termix:/app/data
+    environment:
+      PORT: "8080"
+    deploy:
+      resources:
+        limits:
+          memory: 250M
+        reservations:
+          memory: 50M
+
+    depends_on:
+      - guacd
+    networks:
+      - termix-net
+
+  guacd:
+    image: guacamole/guacd:latest
+    container_name: guacd
+    restart: unless-stopped
+    ports:
+      - "4822:4822"
+    networks:
+      - termix-net
+
+volumes:
+  termix-data:
+    driver: local
+
+networks:
+  termix-net:
+    driver: bridge

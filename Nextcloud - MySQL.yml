@@ -13,3 +13,9 @@ services:
             - '/home/ronaldo/Docker/Nextcloud/config:/var/www/html/config'
             - '/home/ronaldo/Docker/Nextcloud/apps:/var/www/html/custom_apps'
             - '/home/ronaldo/Docker/Nextcloud/nextcloud:/var/www/html'
+        deploy:
+          resources:
+            limits:
+              memory: 400M
+            reservations:
+              memory: 150M

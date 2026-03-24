@@ -2,6 +2,7 @@ services:
   termix:
     image: ghcr.io/lukegus/termix:latest
     container_name: termix
+    user: "1000:1000"
     restart: unless-stopped
     ports:
       - "7681:8080"
@@ -9,6 +10,7 @@ services:
       - /home/orangepi/SSD/Docker/termix:/app/data
     environment:
       PORT: "8080"
+      TZ: "America/Recife"
     deploy:
       resources:
         limits:
@@ -24,7 +26,18 @@ services:
   guacd:
     image: guacamole/guacd:latest
     container_name: guacd
+    user: "1000:1000"
     restart: unless-stopped
+    environment:
+      TZ: "America/Recife"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.30'
+          memory: 150M
+        reservations:
+          cpus: '0.05'
+          memory: 50M
     ports:
       - "4822:4822"
     networks:

@@ -1,0 +1,62 @@
+services:
+  # --- BANCO DE DADOS (Atualizado para MariaDB 11.4 LTS) ---
+  nextcloud-db:
+    image: mariadb:11.4
+    container_name: nextcloud-db
+    restart: unless-stopped
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - /home/orangepi/SSD/Docker/Nextcloud/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=shred-uzfv
+      - MYSQL_PASSWORD=shred-uzfv
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=Ronaldo
+    deploy:
+      resources:
+        limits:
+          memory: 250M
+        reservations:
+          memory: 100M
+
+  # --- ACELERADOR (Redis 8.x Alpine) ---
+  nextcloud-redis:
+    image: redis:8-alpine
+    container_name: nextcloud-redis
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 64M
+        reservations:
+          memory: 20M
+
+  # --- NEXTCLOUD (Versão 33) ---
+  nextcloud:
+    image: nextcloud:33
+    container_name: nextcloud
+    user: "1000:1000"
+    restart: unless-stopped
+    depends_on:
+      - nextcloud-db
+      - nextcloud-redis
+    environment:
+      - TZ=America/Recife
+      - MYSQL_PASSWORD=shred-uzfv
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=Ronaldo
+      - MYSQL_HOST=nextcloud-db
+      - REDIS_HOST=nextcloud-redis
+    ports:
+      - '8095:80'
+    volumes:
+      - '/home/orangepi/SSD/Docker/Nextcloud/data:/var/www/html/data'
+      - '/home/orangepi/SSD/Docker/Nextcloud/config:/var/www/html/config'
+      - '/home/orangepi/SSD/Docker/Nextcloud/apps:/var/www/html/custom_apps'
+      - '/home/orangepi/SSD/Docker/Nextcloud/nextcloud:/var/www/html'
+    deploy:
+      resources:
+        limits:
+          memory: 450M
+        reservations:
+          memory: 150M

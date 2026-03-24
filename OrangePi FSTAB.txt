@@ -1,0 +1,9 @@
+Rodar o TRIM
+
+sudo systemctl enable fstrim.timer
+sudo systemctl start fstrim.timer
+
+
+Adicione edite o arquivo FSTAB ---> sudo nano /etc/fstab   <---  e adicione a linha abaixo:
+
+/dev/sda1  /home/orangepi/SSD  ext4  defaults,noatime,barrier=1,commit=30,errors=remount-ro  0  2

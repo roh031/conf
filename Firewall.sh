@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-LOG= ~$USER/ufw.log
+LOG="$HOME/ufw.log"
 echo "Instalando o Firewall" >> $LOG
 sudo apt update && sudo apt install ufw -y >> $LOG
 sudo ufw enable >> $LOG

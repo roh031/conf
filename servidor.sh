@@ -9,7 +9,9 @@ sudo chmod 1770 /var/lib/samba/usershares
 sudo adduser $USER sambashare
 sudo usermod -aG sambashare $USER
 sudo smbpasswd -a $USER
-sudo echo "*.*  /var/log/tudao.log" >> /etc/rsyslog.conf
 sudo systemctl restart smbd.service nmbd.service rsyslog.service
 sudo systemctl enable --now fstrim.timer
+sudo apt install zsh -y
+cd $HOME
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 sudo reboot now

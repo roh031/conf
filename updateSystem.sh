@@ -2,12 +2,11 @@
 #
 #
 LOG=/var/log/updateSYSTEM.log
-apt update >> $LOG
-apt upgrade -y >> $LOG
-apt install -f -y >> $LOG
-apt autoremove -y 
-apt clean && apt autoclean
-freshclam >> $LOG
+sudo apt update >> $LOG
+sudo apt full-upgrade -y >> $LOG
+sudo apt install -f -y >> $LOG
+sudo apt autoremove --purge -y >> $LOG
+sudo apt clean && apt autoclean >> $LOG
 flatpak update >> $LOG
 echo "*** $(date -R) ***" >> $LOG
 sync

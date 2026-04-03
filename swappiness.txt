@@ -1,9 +1,2 @@
-cat /proc/sys/vm/swappiness
+#!/usr/bin/env bash
 sudo sysctl vm.swappiness=10
-
-# Para deixar permanente
-sudo nano /etc/sysctl.conf
-
-# procure por "vm.swappiness=" e substitua o 
-# o valor por "10"
-vm.swappiness=10

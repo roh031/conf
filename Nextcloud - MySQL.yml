@@ -7,15 +7,15 @@ services:
         environment:
             - TZ=America/Recife
         ports:
-            - '8090:80'
+            - '8087:80'
         volumes:
-            - '/home/ronaldo/Docker/Nextcloud/data:/var/www/html/data'
-            - '/home/ronaldo/Docker/Nextcloud/config:/var/www/html/config'
-            - '/home/ronaldo/Docker/Nextcloud/apps:/var/www/html/custom_apps'
-            - '/home/ronaldo/Docker/Nextcloud/nextcloud:/var/www/html'
+            - '$HOME/Docker/Nextcloud/data:/var/www/html/data'
+            - '$HOME/Docker/Nextcloud/config:/var/www/html/config'
+            - '$HOME/Docker/Nextcloud/apps:/var/www/html/custom_apps'
+            - '$HOME/Docker/Nextcloud/nextcloud:/var/www/html'
         deploy:
           resources:
             limits:
-              memory: 400M
+              memory: 600M
             reservations:
-              memory: 150M
+              memory: 200M

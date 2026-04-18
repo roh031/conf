@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
-      - /home/orangepi/SSD/Docker/Nextcloud/db:/var/lib/mysql
+      - $HOME/Docker/Nextcloud/db:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=shred-uzfv
       - MYSQL_PASSWORD=shred-uzfv
@@ -50,10 +50,10 @@ services:
     ports:
       - '8095:80'
     volumes:
-      - '/home/orangepi/SSD/Docker/Nextcloud/data:/var/www/html/data'
-      - '/home/orangepi/SSD/Docker/Nextcloud/config:/var/www/html/config'
-      - '/home/orangepi/SSD/Docker/Nextcloud/apps:/var/www/html/custom_apps'
-      - '/home/orangepi/SSD/Docker/Nextcloud/nextcloud:/var/www/html'
+      - '$HOME/Docker/Nextcloud/data:/var/www/html/data'
+      - '$HOME/Docker/Nextcloud/config:/var/www/html/config'
+      - '$HOME/Docker/Nextcloud/apps:/var/www/html/custom_apps'
+      - '$HOME/Docker/Nextcloud/nextcloud:/var/www/html'
     deploy:
       resources:
         limits:

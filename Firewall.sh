@@ -5,8 +5,8 @@ sudo ufw enable
 sudo ufw allow 137:138/udp
 sudo ufw allow 139,445/tcp
 #sudo ufw allow 445/tcp
-sudo ufw allow 80
-sudo ufw allow 443
+sudo ufw allow 80,443/tpc
+#sudo ufw allow 443
 #sudo ufw allow 4533
 sudo ufw allow 53
 sudo ufw allow 2222
